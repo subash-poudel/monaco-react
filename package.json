@@ -2,7 +2,7 @@
   "name": "monaco-react",
   "version": "1.0.0",
   "description": "Monaco Client for react",
-  "main": "index.js",
+  "main": "dist/index.js",
   "author": "Subash Poudel",
   "license": "MIT",
   "dependencies": {
