@@ -15,7 +15,9 @@ class MonacoEditor extends Component {
   }
 
   initMonaco = ({ theme, value, language, options }) => {
-    monaco.editor.defineTheme(THEME_KEY, theme);
+    if (theme) {
+      monaco.editor.defineTheme(THEME_KEY, theme);
+    }
 
     const editorOptions = {
       value,
@@ -29,12 +31,15 @@ class MonacoEditor extends Component {
 
   render() {
     return (
-      <div
-        style={{ height: 600 }}
-        ref={c => {
-          this._node = c;
-        }}
-      />
+      <div>
+        Monaco editor
+        <div
+          style={{ height: 600 }}
+          ref={c => {
+            this._node = c;
+          }}
+        />
+      </div>
     );
   }
 }
