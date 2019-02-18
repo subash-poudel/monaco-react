@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "Monaco Client for react",
   "main": "dist/index.js",
+  "module": "src/index",
   "author": "Subash Poudel",
   "license": "MIT",
   "dependencies": {
@@ -11,7 +12,8 @@
     "react": "^16.8.2"
   },
   "scripts": {
-    "release": "babel --plugins transform-runtime src --out-dir dist --copy-files"
+    "release": "babel --plugins transform-runtime src --out-dir dist --copy-files",
+    "build": "babel src --out-dir dist"
   },
   "devDependencies": {
     "babel-cli": "^6.26.0",
