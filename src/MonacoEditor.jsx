@@ -2,8 +2,6 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import * as monaco from 'monaco-editor/esm/vs/editor/editor.api';
 
-const THEME_KEY = 'theme-key';
-
 class MonacoEditor extends Component {
   constructor(props) {
     super(props);
@@ -14,17 +12,12 @@ class MonacoEditor extends Component {
     this.initMonaco();
   }
 
-  initMonaco = ({ theme, value, language, options }) => {
-    let editorOptions = {
+  initMonaco = ({ value, language, options }) => {
+    const editorOptions = {
       value,
       language,
       ...options
     };
-
-    if (theme) {
-      monaco.editor.defineTheme(THEME_KEY, theme);
-      editorOptions = { ...editorOptions, ...{ theme: THEME_KEY } };
-    }
 
     this._editor = monaco.editor.create(this._node, editorOptions);
   };
@@ -51,7 +44,6 @@ MonacoEditor.propTypes = {
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   value: PropTypes.string,
   language: PropTypes.string,
-  theme: PropTypes.object,
   options: PropTypes.object,
   editorDidMount: PropTypes.func,
   editorWillMount: PropTypes.func,
@@ -63,7 +55,6 @@ MonacoEditor.defaultProps = {
   height: '100%',
   value: null,
   language: 'javascript',
-  theme: null,
   options: {},
   editorDidMount: noop,
   editorWillMount: noop,
