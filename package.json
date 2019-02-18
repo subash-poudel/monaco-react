@@ -1,9 +1,8 @@
 {
   "name": "monaco-editor-react",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Monaco Client for react",
   "main": "dist/index.js",
-  "module": "src/index",
   "author": "Subash Poudel",
   "license": "MIT",
   "private": false,
