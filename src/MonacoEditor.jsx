@@ -15,16 +15,16 @@ class MonacoEditor extends Component {
   }
 
   initMonaco = ({ theme, value, language, options }) => {
-    if (theme) {
-      monaco.editor.defineTheme(THEME_KEY, theme);
-    }
-
-    const editorOptions = {
+    let editorOptions = {
       value,
       language,
-      ...options,
-      theme: THEME_KEY
+      ...options
     };
+
+    if (theme) {
+      monaco.editor.defineTheme(THEME_KEY, theme);
+      editorOptions = { ...editorOptions, ...{ theme: THEME_KEY } };
+    }
 
     this._editor = monaco.editor.create(this._node, editorOptions);
   };
@@ -51,7 +51,7 @@ MonacoEditor.propTypes = {
   height: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   value: PropTypes.string,
   language: PropTypes.string,
-  theme: PropTypes.string,
+  theme: PropTypes.object,
   options: PropTypes.object,
   editorDidMount: PropTypes.func,
   editorWillMount: PropTypes.func,
