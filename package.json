@@ -1,5 +1,5 @@
 {
-  "name": "monaco-react",
+  "name": "monaco-editor-react",
   "version": "1.0.0",
   "description": "Monaco Client for react",
   "main": "dist/index.js",
